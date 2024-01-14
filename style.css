@@ -74,12 +74,12 @@
 #input{
     margin: 25px 20px;
     width: 50vw;
-    height: 40px;
+    height: 60px;
     border-radius: 20px;
     padding: 0px 20px;
     color: #d90429;
     caret-color: #ef233c;
-    font-size: 25px;
+    font-size: 35px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
