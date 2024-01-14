@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="name">
+        <h1 id="h1">Guess The Number</h1> 
+    </div>
+
+    <div class="none">
+        <div id="new">
+            <button id="new-game" onclick="refreshPage()">New Guess</button>
+        </div>
+    </div>
+
+    <div id="container">
+        <h2 id="h2"></h2> 
+        <div class="input-div">
+            <input id="input" type="number" min="0" max="100">
+        </div>
+        <div class="btn-div">
+            <button class="btn-12" id="btn" onclick="check()"><span>Let's Check</span></button>
+            <!-- <button id="btn" onclick="check()">Let's Check</button> -->
+        </div>
+        <p id="p"></p>
+    </div>
+
+    <script>
+        let h1 = document.querySelector("#h1");
+        let h2 = document.querySelector("#h2");
+        let input = document.querySelector("#input");
+        let p = document.querySelector("#p");
+        let btn = document.querySelector("#btn");
+        let refreshbtn = document.querySelector("#new-game");
+
+        let gameNumber = Math.floor(Math.random() * 100); console.log(gameNumber);
+        let count = 0;
+
+        function check() {
+            let userNumber = parseInt(input.value); // Parse input as an integer 
+            if (isNaN(userNumber) || userNumber < 0 || userNumber > 100) {
+                p.innerText = "Enter a valid number between 0 and 100";
+                return;
+            }
+
+            if (userNumber < gameNumber) {
+                p.innerText = "Too Low!";
+                count++;
+            }
+            else if (userNumber > gameNumber) {
+                p.innerText = "Too High!";
+                count++;
+            } else {
+                p.innerText = "";
+                h2.innerText = ("Congratulations, You Guessed the Right Number in " + count + " Times");
+                btn.disabled = true;
+                document.querySelector(".none").style.display = "block";
+            }
+            input.value = "";
+        }
+
+        function refreshPage() {
+            // Reload the current page 
+            location.reload();
+        } 
+    </script>
+</body>
+
+</html>
