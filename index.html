@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess The Number</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="name">
-        <h1 id="h1">Guess The Number</h1> 
+        <h1 id="h1">Guess The Number</h1>
     </div>
 
     <div class="none">
@@ -18,9 +20,9 @@
     </div>
 
     <div id="container">
-        <h2 id="h2"></h2> 
+        <h2 id="h2"></h2>
         <div class="input-div">
-            <input id="input" type="number" min="0" max="100">
+            <input id="input" type="number" min="0" max="100" autofocus>
         </div>
         <div class="btn-div">
             <button class="btn-12" id="btn" onclick="check()"><span>Let's Check</span></button>
@@ -48,11 +50,27 @@
             }
 
             if (userNumber < gameNumber) {
-                p.innerText = "Too Low!";
+                if (userNumber <= (gameNumber - 30)) {
+                    p.innerText = "Way Too Low! Enter Higher Number";
+                }else if (userNumber >= (gameNumber - 5)) {
+                    p.innerText = "Closer! Enter a Little Higher Number";
+                } else if (userNumber >= (gameNumber - 15)) {
+                    p.innerText = "Enter Higher Number";
+                } else if (userNumber >= (gameNumber - 30)) {
+                    p.innerText = "Too Low! Enter Higher Number";
+                }
                 count++;
             }
             else if (userNumber > gameNumber) {
-                p.innerText = "Too High!";
+                if (userNumber >= (gameNumber + 30)) {
+                    p.innerText = "Way Too High! Enter Lower Number";
+                } else if (userNumber <= (gameNumber + 5)) {
+                    p.innerText = "Closer! Enter a Little Lower Number";
+                } else if (userNumber <= (gameNumber + 15)) {
+                    p.innerText = "Enter Lower Number";
+                } else if (userNumber <= (gameNumber + 30)) {
+                    p.innerText = "Too High! Enter Lower Number";
+                } 
                 count++;
             } else {
                 p.innerText = "";
@@ -67,7 +85,14 @@
         function refreshPage() {
             // Reload the current page 
             location.reload();
-        } 
+        }
+
+        document.addEventListener("keydown", function (e) {
+            if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+                check();
+                btn.innerText = "Next Attempt";
+            }
+        });
     </script>
 </body>
 
