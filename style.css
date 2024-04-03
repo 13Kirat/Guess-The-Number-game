@@ -10,7 +10,7 @@
     align-items: center;
     height: 20vh;
     display: flex;
-    background-color: #2b2d42;
+    background-color: #000000;
     color: #edf2f4;
     text-align: center;   
 }
@@ -24,7 +24,7 @@
     height: 40px;
     font-size: 1.1em;
     cursor: pointer;
-    background-color: #e5e5e5;
+    background-color: #000000;
     color: #1982c4;
     font-weight: bolder;
     border: none;
@@ -56,14 +56,14 @@
 
 .none{
     display: none;
-    background-color: #2b2d42;
+    background-color: #000000;
 }
 
 #container{
     padding: 10vh 25vw;
     height: 100vh;
     width: 100%;
-    background: #CCC9DC;
+    background: #000000;
 }
 
 .btn-div{

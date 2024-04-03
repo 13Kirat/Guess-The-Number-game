@@ -80,6 +80,7 @@
                 document.querySelector(".none").style.display = "block";
             }
             input.value = "";
+            change();
         }
 
         function refreshPage() {
@@ -87,11 +88,15 @@
             location.reload();
         }
 
-        document.addEventListener("keydown", function (e) {
-            if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+        function change(e) {
+            if (e.code == "Enter") {  //checks whether the pressed key is "Enter"
                 check();
-                btn.innerText = "Next Attempt";
+                btn.innerHTML = "Next Attempt";
             }
+        }
+
+        window.addEventListener("keydown", function (e) {
+            change(e);
         });
     </script>
 </body>
